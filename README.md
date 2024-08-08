@@ -43,7 +43,10 @@ To use the model the following snipped may be used
 ```python
 
 >>> from SEAPF.Model import Model
-
+>>> from datasets import utils
+>>> from matplotlib import pyplot as plt
+>>> from SEAPF.Plotter import Plotter
+>>> 
 >>> ts = ... # load unix timestamps in some way
 >>> data = ... # load data in some way 
 >>>

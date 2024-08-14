@@ -11,9 +11,6 @@ Project structure:
 │   ├── database.csv
 │   ├── Dataset.py
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-38.pyc
-│   │   └── utils.cpython-38.pyc
 │   └── utils.py
 ├── experimental
 │   ├── Experimental.py
@@ -26,14 +23,16 @@ Project structure:
 │   ├── Optimized.py
 │   ├── Overlay.py
 │   ├── Plotter.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-38.pyc
-│   │   ├── Model.cpython-38.pyc
-│   │   ├── Optimized.cpython-38.pyc
-│   │   ├── Overlay.cpython-38.pyc
-│   │   └── Plotter.cpython-38.pyc
 │   ├── README.md
+│   ├── setup.py
+│   ├── tests
 │   └── Time.py
+├── Solar
+│   ├── __init__.py
+│   ├── README.md
+│   └── Solar.py
+├── Transition_Into_Solar_Elevation_Angle_Domain_for_Photovoltaic_Power_Generation_Forecasting.pdf
+└── Transition_Into_Solar_Elevation_Angle_Domain_for_Photovoltaic_Power_Generation_Forecasting___POSTER.pdf
 
 ```
 

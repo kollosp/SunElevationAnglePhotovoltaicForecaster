@@ -42,7 +42,10 @@ To use the model the following snipped may be used
 ```python
 
 >>> from SEAPF.Model import Model
-
+>>> from datasets import utils
+>>> from matplotlib import pyplot as plt
+>>> from SEAPF.Plotter import Plotter
+>>> 
 >>> ts = ... # load unix timestamps in some way
 >>> data = ... # load data in some way 
 >>>
@@ -52,7 +55,8 @@ To use the model the following snipped may be used
 >>> model = Model(latitude_degrees=LATITUDE_DEGREES, longitude_degrees=LONGITUDE_DEGREES, x_bins=30,
                  y_bins=60, bandwidth=0.4)
 >>> model.fit(ts=ts, data=production,  zeros_filter_modifier = -0.4, density_filter_modifier = -0.5)
->>> pred = model.predict(ts) # predict production (in-sample prediction only for example) 
+>>> pred = model.predict(ts) # predict production (in-sample prediction only for example)
+>>> model.plot() # show model structure and its represenation
 >>> plotter = Plotter(ts, [production, pred], debug=True) # run inveractive chart
 >>> plotter.show()
 >>> plt.show()

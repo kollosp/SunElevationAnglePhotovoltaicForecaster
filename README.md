@@ -60,7 +60,7 @@ To use the model the following snipped may be used
 >>>              y_bins=60,
 >>>              bandwidth=0.4,
 >>>              interpolation=True)
->>> # in sample training - only for test
+>>> # in sample prediction - only for test!
 >>> model.fit(X=X, y=y,  zeros_filter_modifier = -0.2, density_filter_modifier = -0.4)>>> pred = model.predict(ts) # predict production (in-sample prediction only for example)
 >>> model.plot() # show model structure and its represenation
 >>> model.plot()  # for displaying model parameters

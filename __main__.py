@@ -1,7 +1,7 @@
 from datasets import utils
 from SEAPF.Model import Model
 from matplotlib import pyplot as plt
-from SEAPF.Plotter import Plotter
+from utils.Plotter import Plotter
 from sklearn.metrics import mean_absolute_error
 
 SAMPLES_PER_HOUR=12
@@ -18,8 +18,10 @@ if __name__ == "__main__":
     # X = utils.timeseries_to_dataset([data[i] for i in data.columns], window_size=1)
 
     y = data["Production"].to_numpy()
-    X =  ts.reshape(1,-1).T #make 2D
+    print("y:\n", y)
 
+    X =  ts.reshape(1,-1).T #make 2D
+    print("X:\n",X)
 
     model = Model(window_size=SAMPLES_PER_HOUR*3, latitude_degrees=utils.LATITUDE_DEGREES, longitude_degrees=utils.LONGITUDE_DEGREES, x_bins=30,
                  y_bins=60, bandwidth=0.4, interpolation=True)

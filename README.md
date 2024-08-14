@@ -47,11 +47,26 @@ To use the model the following snipped may be used
 >>> from SEAPF.Plotter import Plotter
 >>> 
 >>> ts = ... # load unix timestamps in some way
->>> data = ... # load data in some way 
->>> y = data["Production"].to_numpy()
->>> X =  ts.reshape(1,-1).T #make 2D
+>>> data = ... # load data in some way
+>>> # Optional: load from databases directory
 >>> data, ts = utils.load_dataset(convert_index_to_time=True)
 >>> production = data["Production"].to_numpy()
+>>> y = data["Production"].to_numpy()
+>>> print("y:\n", y)
+y:
+ [0. 0. 0. ... 0. 0. 0.]
+
+>>> X =  ts.reshape(1,-1).T #make 2D
+>>> print("X:\n",X)
+X:
+ [[1.6565364e+09]
+ [1.6565367e+09]
+ [1.6565370e+09]
+ ...
+ [1.6732179e+09]
+ [1.6732182e+09]
+ [1.6732185e+09]]
+
 >>>
 >>> model = Model(window_size=SAMPLES_PER_HOUR*3,
 >>>              latitude_degrees=utils.LATITUDE_DEGREES,

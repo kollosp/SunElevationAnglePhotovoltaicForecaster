@@ -48,15 +48,17 @@ To use the model the following snipped may be used
 >>> 
 >>> ts = ... # load unix timestamps in some way
 >>> data = ... # load data in some way 
->>>
+>>> y = data["Production"].to_numpy()
+>>> X =  ts.reshape(1,-1).T #make 2D
 >>> data, ts = utils.load_dataset(convert_index_to_time=True)
 >>> production = data["Production"].to_numpy()
 >>>
->>> model = Model(latitude_degrees=LATITUDE_DEGREES, longitude_degrees=LONGITUDE_DEGREES, x_bins=30,
-                 y_bins=60, bandwidth=0.4)
->>> model.fit(ts=ts, data=production,  zeros_filter_modifier = -0.4, density_filter_modifier = -0.5)
->>> pred = model.predict(ts) # predict production (in-sample prediction only for example)
+>>> model = Model(window_size=SAMPLES_PER_HOUR*3, latitude_degrees=utils.LATITUDE_DEGREES, longitude_degrees=utils.LONGITUDE_DEGREES, x_bins=30,
+>>>              y_bins=60, bandwidth=0.4, interpolation=True)
+>>> # in sample training - only for test
+>>> model.fit(X=X, y=y,  zeros_filter_modifier = -0.2, density_filter_modifier = -0.4)>>> pred = model.predict(ts) # predict production (in-sample prediction only for example)
 >>> model.plot() # show model structure and its represenation
+>>> model.plot()  # for displaying model parameters
 >>> plotter = Plotter(ts, [production, pred], debug=True) # run inveractive chart
 >>> plotter.show()
 >>> plt.show()
